@@ -12,22 +12,22 @@ public class Main {
     }
 
     public static void checkDeviceAndOS(int oS, int clientDeviceYear) {
-        int currentYear = LocalDate.now().getYear();
-        String platform;
+        String platform = "";
 
         if (oS == 0) {
             platform = "iOS";
         } else if (oS == 1) {
             platform = "Android";
         } else {
-            System.out.println("Доступно только для iOS и Android");
+            System.out.println("Ошибка: Доступно только для iOS и Android");
             return;
         }
 
 
-        String version = (clientDeviceYear < currentYear) ? "облегченную версию " : "обычную версию ";
+        String version = (clientDeviceYear < 2015) ? "облегченную версию" : "версию";
 
-        System.out.println("Установите " + version + "приложения для " + platform + " по ссылке");
+
+        System.out.println("Установите " + version + " приложения для " + platform + " по ссылке");
     }
 
     public static void determineTheDistance(int deliveryDistance) {
