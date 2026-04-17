@@ -29,18 +29,20 @@ public class Main {
     }
 
     public static void determineTheDistance(int deliveryDistance) {
-        int deliveryDays = 1;
 
-        if (deliveryDistance < 20) {
+        int deliveryDays = switch (deliveryDistance) {
+            default -> {
+                if (deliveryDistance >= 20 && deliveryDistance <= 60) yield 2;
+                if (deliveryDistance > 60 && deliveryDistance <= 100) yield 3;
+                yield -1;
+            }
+        };
+
+        if (deliveryDays != -1) {
             System.out.println(deliveryDays);
-        } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
-            System.out.println(deliveryDays + 1);
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            System.out.println(deliveryDays + 2);
         } else {
             System.out.println("На такое расстояние не возим");
         }
-
     }
 
 
