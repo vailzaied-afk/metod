@@ -29,14 +29,17 @@ public class Main {
     }
 
     public static void determineTheDistance(int deliveryDistance) {
+        int deliveryDays;
 
-        int deliveryDays = switch (deliveryDistance) {
-            default -> {
-                if (deliveryDistance >= 20 && deliveryDistance <= 60) yield 2;
-                if (deliveryDistance > 60 && deliveryDistance <= 100) yield 3;
-                yield -1;
-            }
-        };
+        if (deliveryDistance >= 0 && deliveryDistance < 20) {
+            deliveryDays = 1;
+        } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
+            deliveryDays = 2;
+        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            deliveryDays = 3;
+        } else {
+            deliveryDays = -1;
+        }
 
         if (deliveryDays != -1) {
             System.out.println(deliveryDays);
@@ -65,7 +68,7 @@ public class Main {
 
         checkDeviceAndOS(0, 2026);
         System.out.println("Задание 3");
-        determineTheDistance(95);
+        determineTheDistance(15);
 
     }
 
